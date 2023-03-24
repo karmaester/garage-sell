@@ -1,18 +1,14 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-// Import the Commerce module
 import Commerce from '@chec/commerce.js';
 import { useEffect, useState } from 'react';
 import { ProductCard } from '@/components/ProductCard/ProductCard';
 import { Grid } from 'semantic-ui-react';
 
-// Create a Commerce instance
 export default function Home() {
   const commerce = new Commerce('pk_test_51225484fc6d2262de162f37154363c2a1377c2486ea9');
 
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState<any>([])
 
   useEffect(() => {
     commerce.products.list()
@@ -34,7 +30,7 @@ export default function Home() {
       <main className={styles.main}>
         <Grid stackable columns='equal' centered>
           {/* <Image src={hero} fluid /> */}
-          {products.map(product => <Grid.Column width={5} key={product.id}><ProductCard product={product} /></Grid.Column>)}
+          {products.map((product: any) => <Grid.Column width={5} key={product.id}><ProductCard product={product} /></Grid.Column>)}
         </Grid>
       </main>
     </>

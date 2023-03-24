@@ -1,6 +1,6 @@
 import { Card } from 'semantic-ui-react'
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product }: { product: any }) => {
 
     return (
         <Card
