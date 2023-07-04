@@ -11,7 +11,7 @@ export default function Home() {
   const [products, setProducts] = useState<any>([])
 
   useEffect(() => {
-    commerce.products.list()
+    commerce.products.list({ limit: 100 })
       .then(res => {
         setProducts(res.data)
         console.log(res.data)
